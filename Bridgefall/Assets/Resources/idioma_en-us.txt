@@ -18,7 +18,7 @@ descricao creditos 1 andré		:::Game concept and design, production, level desig
 descricao creditos 2 jé			:::Full game development and design, ingame and concept art, music and sound.
 descricao creditos 3 wilson		:::Game test, concept art and level design.
 descricao creditos 4 davi		:::Concept and ingame final art.
-descricao creditos 5 extras		:::Our special thanks for all friends who helped along the long development of the game: Raphael Costa fo the first game, Fabrini Andrade for the marketing, Vinícius Ilídio the build help, Gabriel Nunes for the marketing art and Jorge for the game mode name idea and the ipad. Also thanks for de #indiequilt JAM.
+descricao creditos 5 extras		:::Our special thanks for all friends who helped along the long development of the game: Raphael Costa fo the first game, Fabrini Andrade for the marketing, Vinícius Ilídio the build help, Gabriel Nunes for the marketing art and Jorge for the conquest name idea and the iPad. Also thanks for de #indiequilt JAM.
 mostrar pontos vencer/perder	:::Score: 0
 mostrar bônus ven/per			:::Bonus:			+0
 mostrar perfect ven/per			:::Hit 100%:		+0
@@ -27,6 +27,6 @@ texto mundo						:::World
 texto fase						:::Level
 texto dificuldade				:::Difficulty
 texto pontos					:::Score
-texto modo normal				:::Normal Mode
+texto modo normal				:::Conquest Mode
 texto modo jogo rapido			:::Survival Mode
-mensagem sem macas				:::Don't have apples.. try to make {0} points on {1} for 1.
+mensagem sem macas				:::Don't have apples.. try to make {0} points on {1} for one.

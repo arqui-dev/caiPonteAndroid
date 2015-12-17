@@ -9,16 +9,16 @@ titulo tela derrota jogo normal	:::Defeat
 titulo tela jogo pausa			:::Pause
 titulo tela pontuacao			:::Leaderboard
 subtitulo tela pontuacao		:::Local score
-botao jogo normal				:::Normal Game
+botao jogo normal				:::Conquest
 botao jogo rapido				:::Survival
 descricao ajuda	1				:::Tap to shoot some basketball
 descricao ajuda	2				:::Hit all little guys with them
-descricao ajuda	3				:::They shall <color=#7b0101>not</color> cross brides
+descricao ajuda	3				:::They shall <color=#7b0101>not</color> cross the bridges
 descricao creditos 1 andré		:::Game concept and design, production, level design and development and user interface design.
 descricao creditos 2 jé			:::Full game development and design, ingame and concept art, music and sound.
 descricao creditos 3 wilson		:::Game test, concept art and level design.
 descricao creditos 4 davi		:::Concept and ingame final art.
-descricao creditos 5 extras		:::Our special thanks for all friends who helped along the long development of the game: Raphael Costa, Fabrini Andrade, Vinícius Ilídio and Gabriel Nunes. Also thanks for de #indiequilt JAM, whitout it the game idea will never born.
+descricao creditos 5 extras		:::Our special thanks for all friends who helped along the long development of the game: Raphael Costa fo the first game, Fabrini Andrade for the marketing, Vinícius Ilídio the build help, Gabriel Nunes for the marketing art and Jorge for the game mode name idea and the ipad. Also thanks for de #indiequilt JAM.
 mostrar pontos vencer/perder	:::Score: 0
 mostrar bônus ven/per			:::Bonus:			+0
 mostrar perfect ven/per			:::Hit 100%:		+0
@@ -29,4 +29,4 @@ texto dificuldade				:::Difficulty
 texto pontos					:::Score
 texto modo normal				:::Normal Mode
 texto modo jogo rapido			:::Survival Mode
-mensagem sem macas				:::You don't have enough apples. You can receive one each {0} points on {1}.
+mensagem sem macas				:::Don't have apples.. try to make {0} points on {1} for 1.

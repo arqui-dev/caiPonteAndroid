@@ -27,6 +27,6 @@ texto mundo						:::Mundo
 texto fase						:::Fase
 texto dificuldade				:::Dificuldade
 texto pontos					:::Pontos
-texto modo normal				:::Modo Normal
+texto modo normal				:::Modo Conquista
 texto modo jogo rapido			:::Modo Sobrevivência
 mensagem sem macas				:::Você não tem maçãs, faça {0} pontos no {1} por uma.

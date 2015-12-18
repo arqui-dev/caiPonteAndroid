@@ -1,9 +1,14 @@
 ﻿<Properties>
   <AuthorInfo Name="Jeferson BT" Email="jefbt@zugbahn.com" Copyright="Zugbahn" Company="Zugbahn" Trademark="" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controladores\ControleTela.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GerenciadorUnityAds.cs">
     <Files>
-      <File FileName="Assets\Scripts\Controladores\ControleTela.cs" Line="91" Column="55" />
+      <File FileName="Assets\Scripts\CarregarTextoDeIdioma.cs" Line="22" Column="65" />
+      <File FileName="Assets\Scripts\PontosTelaVitoria.cs" Line="73" Column="90" />
+      <File FileName="Assets\Resources\idioma_pt-br.txt" Line="32" Column="77" />
+      <File FileName="Assets\Resources\idioma_en-us.txt" Line="32" Column="84" />
+      <File FileName="Assets\Scripts\ClassesArmazem\Idiomas.cs" Line="16" Column="59" />
+      <File FileName="Assets\Scripts\GerenciadorUnityAds.cs" Line="59" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

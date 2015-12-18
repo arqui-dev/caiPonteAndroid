@@ -4,12 +4,11 @@ using System.Collections;
 
 public class MostrarPontosTelaDerrota : MonoBehaviour
 {
-	public string textoPontos = "Pontos";
-
 	void Awake()
 	{
 		GetComponent<Text>().text = 
-			textoPontos + ": " + Dados.pontosUltimaFasePassantes;
+			ControleIdioma.PegarTexto(Idiomas.Texto.MostrarPontos).Split('0')[0]
+			+ ": " + Dados.pontosUltimaFasePassantes;
 	}
 }
 

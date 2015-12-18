@@ -68,10 +68,12 @@ public class PontosTelaVitoria : MonoBehaviour
 		Dados.pontosUltimaFaseOnus = 10;
 		//*/
 
-		baseTextoPontos = textoPontos.text.Split('0')[0];
-		baseTextoBonus = textoBonus.text.Split('+')[0];
-		baseTextoPerfeito = textoPerfeito.text.Split('+')[0];
-		baseTextoOnus = textoOnus.text.Split('-')[0];
+
+
+		baseTextoPontos = ControleIdioma.PegarTexto(Idiomas.Texto.MostrarPontos).Split('0')[0];
+		baseTextoBonus = ControleIdioma.PegarTexto(Idiomas.Texto.MostrarBonus).Split('+')[0];
+		baseTextoPerfeito = ControleIdioma.PegarTexto(Idiomas.Texto.MostrarPerfect).Split('+')[0];
+		baseTextoOnus = ControleIdioma.PegarTexto(Idiomas.Texto.MostrarOnus).Split('-')[0];
 
 		if (Dados.modoDeJogo == ModosDeJogo.Normal)
 		{

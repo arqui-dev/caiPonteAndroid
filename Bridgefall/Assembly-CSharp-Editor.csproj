@@ -100,7 +100,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>C:/Users/jefbt/Documents/Criar Jogos/Unity - Projetos/Bridgefall/caiPonteAndroid/Bridgefall/Assets/GooglePlayGames/Editor/JarResolverLib.dll</HintPath>
+ <HintPath>C:/Users/jefbt/Documents/Criar Jogos/Unity - Projetos/Bridgefall_Android_Antigo/Bridgefall/Assets/GooglePlayGames/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

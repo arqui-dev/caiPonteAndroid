@@ -25,54 +25,19 @@ namespace GPlay
 {
 public static class Constants
 {
-        public const string achievement_learn_to_fly = "CgkIhcX70Z0bEAIQDg"; // <GPGSID>
-        public const string achievement_headshot = "CgkIhcX70Z0bEAIQFw"; // <GPGSID>
-        public const string achievement_go_go_power_ranger = "CgkIhcX70Z0bEAIQHw"; // <GPGSID>
-        public const string achievement_time_to_work = "CgkIhcX70Z0bEAIQDw"; // <GPGSID>
-        public const string achievement_triple_kill = "CgkIhcX70Z0bEAIQGA"; // <GPGSID>
-        public const string achievement_i_am_more_than_enough = "CgkIhcX70Z0bEAIQKw"; // <GPGSID>
-        public const string achievement_to_the_moon = "CgkIhcX70Z0bEAIQFQ"; // <GPGSID>
-        public const string achievement_lumberjack = "CgkIhcX70Z0bEAIQEw"; // <GPGSID>
-        public const string achievement_flight_master = "CgkIhcX70Z0bEAIQEQ"; // <GPGSID>
-        public const string achievement_to_infinity_and_beyond = "CgkIhcX70Z0bEAIQFg"; // <GPGSID>
-        public const string achievement_work_harder = "CgkIhcX70Z0bEAIQEg"; // <GPGSID>
-        public const string achievement_wild_master = "CgkIhcX70Z0bEAIQKA"; // <GPGSID>
-        public const string achievement_wild_call = "CgkIhcX70Z0bEAIQJQ"; // <GPGSID>
-        public const string achievement_go_go_strong_ranger = "CgkIhcX70Z0bEAIQHQ"; // <GPGSID>
-        public const string achievement_wild_hunter = "CgkIhcX70Z0bEAIQJw"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_2 = "CgkIhcX70Z0bEAIQAg"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_3 = "CgkIhcX70Z0bEAIQAw"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_4 = "CgkIhcX70Z0bEAIQBA"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_5 = "CgkIhcX70Z0bEAIQBg"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_6 = "CgkIhcX70Z0bEAIQBw"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_7 = "CgkIhcX70Z0bEAIQCA"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_8 = "CgkIhcX70Z0bEAIQCQ"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_9 = "CgkIhcX70Z0bEAIQCg"; // <GPGSID>
-        public const string achievement_go_go_might_ranger = "CgkIhcX70Z0bEAIQHg"; // <GPGSID>
-        public const string achievement_enter_sandman = "CgkIhcX70Z0bEAIQIw"; // <GPGSID>
-        public const string achievement_too_tough_to_die = "CgkIhcX70Z0bEAIQLA"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_1 = "CgkIhcX70Z0bEAIQAQ"; // <GPGSID>
-        public const string achievement_first_steps = "CgkIhcX70Z0bEAIQDQ"; // <GPGSID>
-        public const string achievement_go_go_ranger = "CgkIhcX70Z0bEAIQHA"; // <GPGSID>
-        public const string achievement_highway_to_hell = "CgkIhcX70Z0bEAIQJA"; // <GPGSID>
-        public const string achievement_facing_wilderness = "CgkIhcX70Z0bEAIQJg"; // <GPGSID>
-        public const string achievement_roll_over_beethoven = "CgkIhcX70Z0bEAIQMA"; // <GPGSID>
-        public const string leaderboard_quickplay__difficulty_10 = "CgkIhcX70Z0bEAIQCw"; // <GPGSID>
-        public const string achievement_rampage = "CgkIhcX70Z0bEAIQGg"; // <GPGSID>
-        public const string achievement_to_space = "CgkIhcX70Z0bEAIQFA"; // <GPGSID>
-        public const string achievement_survivalist = "CgkIhcX70Z0bEAIQKg"; // <GPGSID>
-        public const string achievement_keep_your_eye_open = "CgkIhcX70Z0bEAIQKQ"; // <GPGSID>
-        public const string achievement_jump_jump_jumpy = "CgkIhcX70Z0bEAIQLQ"; // <GPGSID>
-        public const string achievement_hitman_god = "CgkIhcX70Z0bEAIQGw"; // <GPGSID>
-        public const string leaderboard_normal_mode = "CgkIhcX70Z0bEAIQDA"; // <GPGSID>
-        public const string achievement_shake_your_groove = "CgkIhcX70Z0bEAIQLw"; // <GPGSID>
-        public const string achievement_outstanding = "CgkIhcX70Z0bEAIQGQ"; // <GPGSID>
-        public const string achievement_jobs_done = "CgkIhcX70Z0bEAIQEA"; // <GPGSID>
-        public const string achievement_sultans_of_swing = "CgkIhcX70Z0bEAIQIg"; // <GPGSID>
-        public const string achievement_keep_rockin_baby = "CgkIhcX70Z0bEAIQLg"; // <GPGSID>
-        public const string achievement_fear_of_the_dark = "CgkIhcX70Z0bEAIQIA"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_1 = "CgkIhcX70Z0bEAIQAQ"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_2 = "CgkIhcX70Z0bEAIQAg"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_3 = "CgkIhcX70Z0bEAIQAw"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_4 = "CgkIhcX70Z0bEAIQBA"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_5 = "CgkIhcX70Z0bEAIQBg"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_6 = "CgkIhcX70Z0bEAIQBw"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_7 = "CgkIhcX70Z0bEAIQCA"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_8 = "CgkIhcX70Z0bEAIQCQ"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_9 = "CgkIhcX70Z0bEAIQCg"; // <GPGSID>
+        const string leaderboard_quickplay__difficulty_10 = "CgkIhcX70Z0bEAIQCw"; // <GPGSID>
 
-		
+		public const string leaderboard_normal_mode = "CgkIhcX70Z0bEAIQDA";
+
 		public static string [] leaderboards_quickplay = {
 			leaderboard_quickplay__difficulty_1,
 			leaderboard_quickplay__difficulty_2,
@@ -85,6 +50,5 @@ public static class Constants
 			leaderboard_quickplay__difficulty_9,
 			leaderboard_quickplay__difficulty_10
 		};
-
 }
 }

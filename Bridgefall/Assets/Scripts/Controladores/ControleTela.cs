@@ -26,7 +26,7 @@ public class ControleTela : MonoBehaviour
 	bool mover = false;
 	bool podeTocarSom = false;
 
-	float proximoTempoAd = 0;
+	//float proximoTempoAd = 0;
 
 	Vector3 deslocamentoPorTela = Vector2.zero;
 
@@ -44,7 +44,7 @@ public class ControleTela : MonoBehaviour
 	static int xanterior = 0;
 	static int yanterior = 0;
 
-	static bool mostrou = false;
+	//static bool mostrou = false;
 
 	static bool podeMover = true;
 
@@ -179,7 +179,7 @@ public class ControleTela : MonoBehaviour
 		TelaMenu();
 
 		//mostrou = false;
-		proximoTempoAd = Time.time + tempoEsperarAd;
+		//proximoTempoAd = Time.time + tempoEsperarAd;
 
 		if (enviouAnalyticsAoComecar == false)
 		{

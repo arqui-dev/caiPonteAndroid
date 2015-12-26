@@ -1,12 +1,11 @@
 ﻿<Properties>
   <AuthorInfo Name="Jeferson BT" Email="jefbt@zugbahn.com" Copyright="Zugbahn" Company="Zugbahn" Trademark="" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CanvasAdProprio.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\idioma_pt-br.txt">
     <Files>
-      <File FileName="Assets\Scripts\ClassesArmazem\Dados.cs" Line="25" Column="46" />
-      <File FileName="Assets\Scripts\ClassesArmazem\Enums.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ClassesArmazem\Idiomas.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CanvasAdProprio.cs" Line="32" Column="31" />
+      <File FileName="Assets\Resources\idioma_en-us.txt" Line="32" Column="1" />
+      <File FileName="Assets\Scripts\TelaInicial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\idioma_pt-br.txt" Line="21" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,7 +22,12 @@ public class ControleOndas : MonoBehaviour
 
 	public GameObject somVitoria;
 
+	public GameObject painelTempo;
+	public Text txtTempo;
+
 	public GameObject [] passantes;
+
+	public GameObject [] sonsGrito;
 
 	public float sobrevivenciaTempoAlterarVelocidadeVento = 20;
 	public float sobrevivenciaTempoAlterarDirecaoVento = 12;
@@ -42,6 +48,9 @@ public class ControleOndas : MonoBehaviour
 
 	bool		esperandoAcabarFase = false;
 	float 		tempoAcabarFase = 0;
+
+	float		tempoDecorrido = 0;
+	float		tempoInicial = 0;
 
 	float sobrevivenciaProximoTempoAleterarVelocidadeVento = 20;
 	float sobrevivenciaProximoTempoAleterarDirecaoVento = 12;
@@ -150,6 +159,11 @@ public class ControleOndas : MonoBehaviour
 		ControleMusica.MusicaJogar();
 
 		InicializarAnalytics();
+
+		painelTempo.SetActive(
+			Dados.modoDeJogo != ModosDeJogo.Normal);
+
+		tempoInicial = Time.time;
 	}
 
 	public void InicializarSobrevivencia(
@@ -214,6 +228,12 @@ public class ControleOndas : MonoBehaviour
 		}
 		// FIM ANALYTICS
 
+		tempoDecorrido = Time.time - tempoInicial;
+		if (Dados.modoDeJogo != ModosDeJogo.Normal)
+		{
+			AtualizarTempo();
+		}
+
 		if (Dados.modoDeJogo == ModosDeJogo.Sobrevivencia)
 		{
 			AtualizarSobrevivencia();
@@ -276,6 +296,12 @@ public class ControleOndas : MonoBehaviour
 			//PerderNaFase();
 			CompletarFase();
 		}
+	}
+
+
+	void AtualizarTempo()
+	{
+		txtTempo.text = tempoDecorrido.ToString("0");
 	}
 
 	void AtualizarVentoEBarcoSobrevivencia()
@@ -411,7 +437,16 @@ public class ControleOndas : MonoBehaviour
 
 	void Gritar()
 	{
-		Debug.Log("Colocar som do grito");
+		if (sonsGrito == null)
+		{
+			Debug.Log("Colocar som do grito");
+			return;
+		}
+
+		GameObject somGrito = 
+			sonsGrito[Random.Range(0,sonsGrito.Length)];
+
+		Instantiate<GameObject>(somGrito);
 	}
 
 	void AtualizarOndaCima()

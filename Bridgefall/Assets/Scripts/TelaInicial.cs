@@ -7,8 +7,9 @@ public class TelaInicial : MonoBehaviour
 	
 	float tempo = 0;
 	
-	void Awake(){
-		tempoMaximo = Time.time + tempoMaximo;
+	void Awake()
+	{
+		tempo = Time.time + tempoMaximo;
 	}
 	
 	void Update ()

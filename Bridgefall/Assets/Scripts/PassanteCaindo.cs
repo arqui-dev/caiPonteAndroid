@@ -11,6 +11,7 @@ public class PassanteCaindo : MonoBehaviour
 
 	// Variáveis públicas
 	public GameObject 	splash;
+	public GameObject	somAgua;
 	public GameObject	somTerra;
 
 	// Variáveis privadas
@@ -54,7 +55,14 @@ public class PassanteCaindo : MonoBehaviour
 		}
 	}
 
-	void BateuAgua(){
+	void BateuAgua()
+	{
+		if (somAgua && Dados.somLigado){
+			Instantiate(
+				somAgua,
+				transform.position,
+				transform.rotation);
+		}
 		Instantiate(splash, filho.position, Quaternion.identity);
 		Destroy(gameObject);
 	}

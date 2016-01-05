@@ -1,12 +1,9 @@
 ﻿<Properties>
   <AuthorInfo Name="Jeferson BT" Email="jefbt@zugbahn.com" Copyright="Zugbahn" Company="Zugbahn" Trademark="" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controladores\ControleIdioma.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\revmob-unity-sdk\revmob-sample-app\Assets\Scripts\RevMobSampleAppCSharp.cs">
     <Files>
-      <File FileName="Assets\Resources\idioma_pt-br.txt" Line="7" Column="31" />
-      <File FileName="Assets\Scripts\Controladores\ControleIdioma.cs" Line="6" Column="2" />
-      <File FileName="Assets\Scripts\ClassesArmazem\Idiomas.cs" Line="82" Column="1" />
-      <File FileName="Assets\Scripts\CarregarTextoDeIdioma.cs" Line="15" Column="64" />
+      <File FileName="..\..\..\revmob-unity-sdk\revmob-sample-app\Assets\Scripts\RevMobSampleAppCSharp.cs" Line="6" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

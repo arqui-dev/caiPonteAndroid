@@ -9,14 +9,21 @@ public class Navegacao : MonoBehaviour
 
 	// Variáveis estáticas
 	public static Telas telaAtual = Telas.Inicial;
+	public static Telas telaAnterior = Telas.Inicial;
 
 	// Métodos estáticos
 	public static void CarregarTelaEstatico(Telas tela)
 	{
+		telaAnterior = telaAtual;
 		telaAtual = tela;
 		Debug.Log("AQUI estatico "+tela);
 		Application.LoadLevel(Dados.nomeTelas[(int) tela]);
 		UnityAnalytics.EnviarPontosMaisTocados();
+	}
+
+	public static void VoltarUmaTela()
+	{
+		CarregarTelaEstatico(telaAnterior);
 	}
 
 	// Métodos públicos

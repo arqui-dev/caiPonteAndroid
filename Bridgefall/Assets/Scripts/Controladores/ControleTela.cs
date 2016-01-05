@@ -59,22 +59,27 @@ public class ControleTela : MonoBehaviour
 			return;
 		}
 
-		PrepararMovimento(0,-1);
+		PrepararMovimento(0,0);
+
+		Navegacao.CarregarTelaEstatico(Telas.Menu);
 	}
 
 	public void TelaConfiguracoes()
 	{
 		PrepararMovimento(0,-1);
+		Navegacao.CarregarTelaEstatico(Telas.Menu);
 	}
 
 	public void TelaCreditos()
 	{
 		PrepararMovimento(1,-1);
+		Navegacao.CarregarTelaEstatico(Telas.Menu_Creditos);
 	}
 
 	public void TelaAjuda()
 	{
 		PrepararMovimento(0,1);
+		Navegacao.CarregarTelaEstatico(Telas.Menu_Ajuda);
 	}
 
 	public void TelaPontuacao()
@@ -83,6 +88,7 @@ public class ControleTela : MonoBehaviour
 		PrepararMovimento(-1,-1);
 
 		//GooglePlay.MostrarLeaderBoards();
+		Navegacao.CarregarTelaEstatico(Telas.Menu_Pontuacao);
 	}
 
 	public void TelaGooglePlayPontuacao()
@@ -100,6 +106,7 @@ public class ControleTela : MonoBehaviour
 	{
 		ControleModosDeJogo.Recarregar();
 		PrepararMovimento(0,0);
+		Navegacao.CarregarTelaEstatico(Telas.Menu_ModoJogo);
 	}
 
 	public void TelaEscolherMundo()
@@ -109,6 +116,7 @@ public class ControleTela : MonoBehaviour
 			TelaFases(0);
 		}else{
 			PrepararMovimento(-1,0);
+			Navegacao.CarregarTelaEstatico(Telas.Menu_Mundos);
 		}
 	}
 
@@ -116,12 +124,12 @@ public class ControleTela : MonoBehaviour
 	{
 		Dados.modoDeJogo = ModosDeJogo.JogoRapido;
 		PrepararMovimento(1,0);
+		Navegacao.CarregarTelaEstatico(Telas.Menu_Sobrevivencia);
 	}
 
 	public void TelaSobrevivencia()
 	{
-		Dados.modoDeJogo = ModosDeJogo.Sobrevivencia;
-		PrepararMovimento(-1,1);
+		TelaJogoRapido();
 	}
 
 	public void TelaFases(int mundo)
@@ -130,6 +138,7 @@ public class ControleTela : MonoBehaviour
 		Dados.mundoAtual = mundo;
 		ControleFasesLiberadas.Recarregar();
 		PrepararMovimento(-1,1);
+		Navegacao.CarregarTelaEstatico(Telas.Menu_Fases);
 	}
 
 	public void VoltarDaTelaEscolherFases()
@@ -144,7 +153,9 @@ public class ControleTela : MonoBehaviour
 	public void AlterarDificuldadeJogoRapido(Slider sliderDif)
 	{
 		int dif = (int) sliderDif.value;
-		textoDificuldadeJogoRapido.text = "" + dif;
+		if (textoDificuldadeJogoRapido != null)
+			textoDificuldadeJogoRapido.text = "" + dif;
+
 		Dados.jogoRapidoDificuldade = dif;
 	}
 
@@ -152,6 +163,12 @@ public class ControleTela : MonoBehaviour
 		// Métodos Privados
 	void Awake()
 	{
+		_instancia = this;
+
+		mostradorDePontos.Carregar();
+
+		ControleMusica.MusicaMenu();
+
 		deslocamentoPorTela.x = Screen.width;
 		deslocamentoPorTela.y = Screen.height;
 		deslocamentoPorTela.z = 0;
@@ -176,7 +193,7 @@ public class ControleTela : MonoBehaviour
 		Utilidade.CarregarDados();
 
 		Recarregar();
-		TelaMenu();
+		//TelaMenu();
 
 		//mostrou = false;
 		//proximoTempoAd = Time.time + tempoEsperarAd;
@@ -201,6 +218,7 @@ public class ControleTela : MonoBehaviour
 		}
 		//*/
 
+		/*
 		if (mover)
 		{
 			Mover();
@@ -218,23 +236,27 @@ public class ControleTela : MonoBehaviour
 			
 			painel.position = alvo;
 		}
+		//*/
 	}
 
 	public void VoltarUmaTela()
 	{
 		PrepararMovimento(xanterior,yanterior, true);
+		Navegacao.VoltarUmaTela();
 	}
 
 	void PrepararMovimento(int telax, int telay, bool voltar = false)
 	{
+		/*
 		if (voltar == false)
 		{
 			xanterior = xatual;
 			yanterior = yatual;
 		}
+		*/
 
-		xatual = telax;
-		yatual = telay;
+		//xatual = telax;
+		//yatual = telay;
 
 		/*
 		alvo = Camera.main.ScreenToWorldPoint(new Vector3(
@@ -251,7 +273,7 @@ public class ControleTela : MonoBehaviour
 		tempoMovimento = Time.time + tempo;
 		*/
 
-		IrPara(telax, telay);
+		//IrPara(telax, telay);
 
 		TocarSom();
 	}
@@ -294,23 +316,26 @@ public class ControleTela : MonoBehaviour
 		switch(tela)
 		{
 		case Telas.EscolherFase: 	
-			switch(Dados.modoDeJogo){
-			case ModosDeJogo.Normal: 		IrPara(-1,1); break;
-			case ModosDeJogo.JogoRapido: 	IrPara(1,0); break;
-			case ModosDeJogo.Sobrevivencia: IrPara(1,0); break;
-			default: 						IrPara(0,1); break;
-			}
-			break;
 		case Telas.EscolherMundo:
 			switch(Dados.modoDeJogo){
-			case ModosDeJogo.Normal: 		IrPara(-1,0); break;
-			case ModosDeJogo.JogoRapido: 	IrPara(1,0); break;
-			case ModosDeJogo.Sobrevivencia: IrPara(1,0); break;
-			default: 						IrPara(0,1); break;
+			case ModosDeJogo.Normal:
+				_instancia.TelaEscolherMundo();
+				break;
+			case ModosDeJogo.JogoRapido: 	
+			case ModosDeJogo.Sobrevivencia:
+				_instancia.TelaJogoRapido();
+				break;
+			default:
+				_instancia.TelaMenu();
+				break;
 			}
 			break;
-		case Telas.EscolherJogo: 	IrPara(0,0); break;
-		default: 					IrPara(0,1); break;
+		case Telas.EscolherJogo:
+			_instancia.TelaModoJogo(); 
+			break;
+		default:
+			_instancia.TelaMenu();
+			break;
 		}
 	}
 

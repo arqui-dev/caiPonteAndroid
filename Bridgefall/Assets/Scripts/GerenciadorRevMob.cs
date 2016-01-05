@@ -1,0 +1,343 @@
+﻿/*
+
+using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+
+public class GerenciadorRevMob : MonoBehaviour, IRevMobListener {
+	private static readonly int BUTTON_WIDTH = 200;
+	private static readonly int BUTTON_HEIGHT = 50;
+	private static readonly int PADDING = 20;
+	
+	private static readonly int X_POSITION_REFERENCE = 10 + PADDING;
+	private static readonly int Y_POSITION_REFERENCE = BUTTON_HEIGHT + PADDING;
+	
+	private int i = 0;
+	private Vector2 scrollPosition = Vector2.zero;
+	delegate void OnButtonClicked();
+	
+	private static readonly Dictionary<String, String> appIds = new Dictionary<String, String>() {
+		{ "Android", "5106bea78e5bd71500000098"}, // Find your RevMob App IDs in revmob.com
+		{ "IOS", "5106be9d0639b41100000052" }
+	};
+	
+	private RevMob revmob;
+	private RevMobFullscreen fullscreen, video, rewardedVideo;
+	private RevMobPopup popup;
+	private RevMobLink link;
+	private RevMobLink button;
+	private RevMobBanner banner;
+	private RevMobBanner loadedBanner;
+	
+	void OnApplicationFocus() {
+	}
+	
+	void Update() {
+	}
+	
+	void OnGUI() {
+		scrollPosition = GUI.BeginScrollView(new Rect(0,0,Screen.width,Screen.height), scrollPosition, new Rect(0,0,Screen.width,BUTTON_HEIGHT*30));
+		
+		i = 0;
+		CreateButton("Start Session", () => { revmob = RevMob.Start(appIds, "GameObject"); });
+		if (revmob != null) {
+			CreateEnvButtons();
+			CreateFullscreenButtons();
+			CreateVideoButtons();
+			CreateBannerButtons();
+			PreLoadBanner();
+			CreateButtonButtons();
+			CreateLinkButtons();
+			CreatePopupButtons();
+		}
+		
+		GUI.EndScrollView ();
+	}
+	
+	void CreateButton(String label, OnButtonClicked onClicked) {
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), label) ) {
+			onClicked();
+		}
+	}
+	
+	void CreateEnvButtons() {
+		CreateButton("Exit", () => { Application.Quit(); });
+		CreateButton("Testing Mode With Ads", () => { revmob.SetTestingMode(RevMob.Test.WITH_ADS); });
+		CreateButton("Testing Mode Without Ads", () => { revmob.SetTestingMode(RevMob.Test.WITHOUT_ADS); });
+		CreateButton("Disable Testing Mode", () => { revmob.SetTestingMode(RevMob.Test.DISABLED); });
+		CreateButton("Print Env Information", () => { revmob.PrintEnvironmentInformation(); });
+		CreateButton("Set timeout to 5s", () => { revmob.SetTimeoutInSeconds(5); });
+	}
+	
+	void CreateFullscreenButtons() {
+		CreateButton("Show Fullscreen", () => { revmob.ShowFullscreen(); return; });
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Load Fullscreen") ) {
+			fullscreen = revmob.CreateFullscreen();
+			return;
+		}
+		
+		if (fullscreen != null) {
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Fullscreen") ) {
+				fullscreen.Show();
+				return;
+			}
+			
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, (i + 1) * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Hide Fullscreen") ) {
+				fullscreen.Hide();
+				return;
+			}
+		}
+	}
+	
+	void CreateVideoButtons() {
+		CreateButton("Load Video", () => {
+			video = revmob.CreateVideo();
+			return; 
+		});
+		if(video != null){
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Video") ) {
+				video.ShowVideo();
+				return;
+			}			
+		} 
+		CreateButton("Load Rewarded Video", () => {
+			rewardedVideo = revmob.CreateRewardedVideo();
+			return; 
+		});
+		if(rewardedVideo != null) {	
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Rewarded Video") ) {
+				rewardedVideo.ShowRewardedVideo();
+				return;
+			}
+		}
+	}
+	
+	void CreatePopupButtons() {
+		CreateButton("Show Popup", () => { revmob.ShowPopup(); return; });
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Load Popup") ) {
+			popup = revmob.CreatePopup();
+			return;
+		}
+		
+		if (popup != null) {
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Popup") ) {
+				popup.Show();
+				popup = null;
+				return;
+			}
+		}
+	}
+	
+	void CreateLinkButtons() {
+		CreateButton("Open Ad Link", () => { revmob.OpenLink(); return; });
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Create Ad Link") ) {
+			if (revmob == null)
+				return;
+			link = revmob.CreateLink();
+			return;
+		}
+		
+		if (link != null) {
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Open Link") ) {
+				link.Open();
+				link = null;
+				return;
+			}
+		}
+	}
+	
+	void CreateButtonButtons() {
+		CreateButton("Open Button", () => { revmob.OpenButton(); return; });
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Pre-Load Button Ad") ) {
+			if (revmob == null)
+				return;
+			button = revmob.CreateButton();
+			return;
+		}
+		
+		if (button != null) {
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Open Pre-Loaded Button") ) {
+				button.Open();
+				button = null;
+				return;
+			}
+		}
+	}
+	
+	void CreateBannerButtons() {
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Banner") ) {
+			#if UNITY_ANDROID || UNITY_IPHONE
+			if (banner == null) {
+				banner = revmob.CreateBanner();
+			}
+			banner.Show();
+			#endif
+			return;
+		}
+		i++;
+		if ( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Custom Banner") ) {
+			#if UNITY_ANDROID
+			banner = revmob.CreateBanner(RevMob.Position.TOP, 0, 0, Screen.width, 55);
+			banner.Show();
+			#elif UNITY_IPHONE
+			banner = revmob.CreateBanner(10, 20, 200, 40, null, null);
+			banner.Show();
+			#endif
+			return;
+		}
+		
+		if (banner != null) 
+		{
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Hide Banner") ) {
+				#if UNITY_ANDROID || UNITY_IPHONE
+				banner.Hide();
+				#endif
+				return;
+			}
+		}
+		
+		if (banner != null) 
+		{
+			if ( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, (i+1) * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Deactivate Banner") ) {
+				#if UNITY_ANDROID || UNITY_IPHONE
+				banner.Release();
+				banner = null;
+				#endif
+				return;
+			}
+		}
+	}
+	
+	void PreLoadBanner() {
+		i++;
+		if( GUI.Button(new Rect(X_POSITION_REFERENCE, i * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Load Banner") ) {
+			#if UNITY_ANDROID || UNITY_IPHONE
+			// if (loadedBanner == null) {
+			loadedBanner = revmob.CreateBanner();
+			// }
+			#endif
+			return;
+		}
+		
+		if (loadedBanner != null)
+		{
+			if( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, (i+1) * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Show Loaded Banner") ) {
+				#if UNITY_ANDROID || UNITY_IPHONE
+				loadedBanner.Show();
+				#endif
+				return;
+			}
+		}
+		
+		if (loadedBanner != null)
+		{
+			if( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, (i+2) * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Hide Loaded Banner") ) {
+				#if UNITY_ANDROID || UNITY_IPHONE
+				loadedBanner.Hide();
+				#endif
+				return;
+			}
+		}
+		
+		if (loadedBanner != null)
+		{
+			if( GUI.Button(new Rect(X_POSITION_REFERENCE + BUTTON_WIDTH + PADDING, (i+3) * Y_POSITION_REFERENCE, BUTTON_WIDTH, BUTTON_HEIGHT), "Release Loaded Banner") ) {
+				#if UNITY_ANDROID || UNITY_IPHONE
+				loadedBanner.Release();
+				loadedBanner = null;
+				#endif
+				return;
+			}
+		}
+	}
+	
+	#region IRevMobListener implementation
+	public void SessionIsStarted() {
+		Debug.Log(">>> Session Started");
+	}
+	
+	public void SessionNotStarted(string message) {
+		Debug.Log(">>> Session not started");
+	}
+	
+	public void AdDidReceive(string revMobAdType) {
+		Debug.Log(">>> AdDidReceive: " + revMobAdType);
+	}
+	
+	public void AdDidFail(string revMobAdType) {
+		Debug.Log(">>> AdDidFail: " + revMobAdType);
+	}
+	
+	public void AdDisplayed(string revMobAdType) {
+		Debug.Log(">>> AdDisplayed: " + revMobAdType);
+	}
+	
+	public void UserClickedInTheAd(string revMobAdType)	{
+		Debug.Log(">>> AdClicked: " + revMobAdType);
+	}
+	
+	public void UserClosedTheAd(string revMobAdType) {
+		Debug.Log(">>> AdClosed: " + revMobAdType);
+	}
+	
+	public void VideoLoaded() {
+		Debug.Log(">>> VideoLoaded");
+	}
+	public void VideoNotCompletelyLoaded() {
+		Debug.Log(">>> VideoNotCompletelyLoaded");
+	}
+	public void VideoStarted() {
+		Debug.Log(">>> VideoStarted");
+	}
+	public void VideoFinished() {
+		Debug.Log(">>> VideoFinished");
+	}
+	
+	public void RewardedVideoLoaded() {
+		Debug.Log(">>> RewardedVideoLoaded");
+	}
+	public void RewardedVideoNotCompletelyLoaded() {
+		Debug.Log(">>> RewardedVideoNotCompletelyLoaded");
+	}
+	public void RewardedVideoStarted() {
+		Debug.Log(">>> RewardedVideoStarted");
+	}
+	public void RewardedVideoFinished() {
+		Debug.Log(">>> RewardedVideoFinished");
+	}
+	public void RewardedVideoCompleted() {
+		Debug.Log(">>> RewardedVideoCompleted");
+	}
+	public void RewardedPreRollDisplayed() {
+		Debug.Log(">>> RewardedPreRollDisplayed");
+	}
+	
+	
+	public void InstallDidReceive(string message) {}
+	
+	public void InstallDidFail(string message) {}
+	
+	public void EulaIsShown() {
+		Debug.Log(">>> EulaShown");
+	}
+	
+	public void EulaAccepted() {
+		Debug.Log(">>> EulaAccepted");
+	}
+	
+	public void EulaRejected() {
+		Debug.Log(">>> EulaRejected");
+	}
+	
+	#endregion
+}
+
+//*/

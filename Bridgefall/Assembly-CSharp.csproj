@@ -256,6 +256,7 @@
      <Compile Include="Assets\Scripts\DestruirAoAcabarTransicaoAnimacao.cs" />
      <Compile Include="Assets\Scripts\Desvanecer.cs" />
      <Compile Include="Assets\Scripts\EnfeiteCasa.cs" />
+     <Compile Include="Assets\Scripts\GerenciadorRevMob.cs" />
      <Compile Include="Assets\Scripts\GerenciadorUnityAds.cs" />
      <Compile Include="Assets\Scripts\GooglePlay.cs" />
      <Compile Include="Assets\Scripts\Inicializar.cs" />

@@ -1,9 +1,12 @@
 ﻿<Properties>
   <AuthorInfo Name="Jeferson BT" Email="jefbt@zugbahn.com" Copyright="Zugbahn" Company="Zugbahn" Trademark="" />
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\revmob-unity-sdk\revmob-sample-app\Assets\Scripts\RevMobSampleAppCSharp.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GerenciadorUnityAds.cs">
     <Files>
-      <File FileName="..\..\..\revmob-unity-sdk\revmob-sample-app\Assets\Scripts\RevMobSampleAppCSharp.cs" Line="6" Column="19" />
+      <File FileName="Assets\Scripts\GerenciadorUnityAds.cs" Line="19" Column="18" />
+      <File FileName="Assets\Scripts\UI\TelaFaltouMaca.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GerenciadorAdBuddiz.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Navegacao.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -78,6 +78,7 @@
      <None Include="Assets\Resources\world2.txt" />
      <None Include="Assets\Resources\world1.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
@@ -143,6 +144,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{2A217A1E-479A-942D-6F2D-36722CC8F156}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{EAB1762A-25ED-45E5-57C4-06581B91F735}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

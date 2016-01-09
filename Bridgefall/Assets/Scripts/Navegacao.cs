@@ -6,6 +6,7 @@ public class Navegacao : MonoBehaviour
 	// Variáveis Públicas
 	public GameObject som = null;
 	public GameObject somPagina = null;
+	public GameObject telaFaltouMaca;
 
 	// Variáveis estáticas
 	public static Telas telaAtual = Telas.Inicial;
@@ -29,8 +30,9 @@ public class Navegacao : MonoBehaviour
 	// Métodos públicos
 	public void MostrarAdMaca(GameObject botao)
 	{
-		GerenciadorUnityAds.ShowRewardedAd();
-		if (botao != null)
+		//GerenciadorUnityAds.ShowRewardedAd();
+		MensagemMacaNaoTem();
+		if (botao != null && Dados.macasVerdeTotal > 0)
 			botao.SetActive(false);
 	}
 
@@ -168,9 +170,13 @@ public class Navegacao : MonoBehaviour
 
 	void MensagemMacaNaoTem()
 	{
+		/*
 		Debug.Log ("Nao tem maças o suficiente. Colocar som");
 		ControleMensagens.AdicionarMensagem(
 			Utilidade.MensagemSemMacas(), 0);
+		//*/
+
+		Instantiate<GameObject>(telaFaltouMaca);
 	}
 
 	public void CarregarProximaFase()

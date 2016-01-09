@@ -9,6 +9,9 @@ public class Dados : MonoBehaviour
 	public static long macasVerdesUltimaTela = 0;
 	public static long macasDivisorPontos = 1000;
 
+	public static int macasPorVideo = 3;
+	public static int macasPorBanner = 1;
+
 	// Apenas para não dar pala no carregamento
 	public static string nomeVersaoSalvarAtual = "VersãoAtual";
 	public static int versaoSalvarAtual = 3;

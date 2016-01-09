@@ -16,7 +16,10 @@ public class Idiomas
 		MostrarPontos, MostrarBonus, MostrarPerfect, MostrarOnus,
 		TextoMundo, TextoFase, TextoDificuldade, TextoPontos,
 		TextoModoNormal, TextoModoJogoRapido,
-		MensagemSemMacas
+		MensagemSemMacas, 
+		DescricaoTelaSemMacaTitulo, DescricaoTelaSemMacaDescricao,
+		DescricaoTelaSemMacaVideo, DescricaoTelaSemMacaBanner,
+		DescricaoTelaSemMacaSobrevivencia
 	}
 
 	SystemLanguage idioma = SystemLanguage.English;

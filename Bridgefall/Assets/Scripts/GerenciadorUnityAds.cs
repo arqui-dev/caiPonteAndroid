@@ -39,6 +39,7 @@ public class GerenciadorUnityAds : MonoBehaviour
 		{
 			Debug.Log ("Unity ads not initialized.");
 			//Utilidade.AdicionarMensagemNaoViuAd();
+			AdicionarMacas(1);
 			MostrarAdProprio();
 			return;
 		}
@@ -58,32 +59,32 @@ public class GerenciadorUnityAds : MonoBehaviour
 	//*
 	static void HandleShowResult(ShowResult result)
 	{
+		// Adiciona 1 mesmo que o video nao de certo.
+		AdicionarMacas(1);
+
 		switch (result)
 		{
 		case ShowResult.Finished:
 			Debug.Log("The ad was successfully shown.");
-			AdicionarMacas();
+			AdicionarMacas(Dados.macasPorVideo - 1);
 			UnityAnalytics.AbriuAd(true, Inicializado());
 			break;
 		case ShowResult.Skipped:
-			Debug.Log("The ad was skipped before reaching the end.");
-			//Utilidade.AdicionarMensagemNaoViuAd();
-			MostrarAdProprio();
+			Debug.Log ("Saltou o ad");
 			break;
 		case ShowResult.Failed:
-			Debug.LogError("The ad failed to be shown.");
-			//Utilidade.AdicionarMensagemNaoViuAd();
+			Debug.Log ("Falhou ao mostrar ad");
 			MostrarAdProprio();
 			break;
 		}
 	}
 	//*/
 
-	static void AdicionarMacas()
+	public static void AdicionarMacas(int macas = 1)
 	{
-		Utilidade.AdicionarMacasPorQuantidade(1);
+		Utilidade.AdicionarMacasPorQuantidade(macas);
 		Utilidade.AjeitarMacasVerdes();
-		UnityAnalytics.GanhouMaca(true, 1);
+		UnityAnalytics.GanhouMaca(true, macas);
 	}
 
 	static void MostrarAdProprio()
@@ -91,7 +92,7 @@ public class GerenciadorUnityAds : MonoBehaviour
 		UnityAnalytics.AbriuAd(false, Inicializado());
 
 		Debug.Log ("Mostrando Ad proprio.");
-		AdicionarMacas();
+		AdicionarMacas(Dados.macasPorVideo - 1);
 
 		if (canvasAdProprio != null)
 		{

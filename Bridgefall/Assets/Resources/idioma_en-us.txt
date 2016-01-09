@@ -30,3 +30,8 @@ texto pontos					:::Score
 texto modo normal				:::Conquest Mode
 texto modo jogo rapido			:::Survival Mode
 mensagem sem macas				:::Don't have apples.. try to make {0} points on {1} for one.
+descricao tela maçã titulo		:::NO MORE APPLES!
+descricao tela maçã descrição	:::You have no more apples. Get more with one of the options below.
+descricao tela maçã video		:::Watch an advertising video
+descricao tela maçã banner		:::See an advertising banner
+descricao tela maçã sobrevi		:::Get {0} score points in survival

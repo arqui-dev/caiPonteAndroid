@@ -256,6 +256,7 @@
      <Compile Include="Assets\Scripts\DestruirAoAcabarTransicaoAnimacao.cs" />
      <Compile Include="Assets\Scripts\Desvanecer.cs" />
      <Compile Include="Assets\Scripts\EnfeiteCasa.cs" />
+     <Compile Include="Assets\Scripts\GerenciadorAdBuddiz.cs" />
      <Compile Include="Assets\Scripts\GerenciadorRevMob.cs" />
      <Compile Include="Assets\Scripts\GerenciadorUnityAds.cs" />
      <Compile Include="Assets\Scripts\GooglePlay.cs" />
@@ -279,7 +280,9 @@
      <Compile Include="Assets\Scripts\TelaPausa.cs" />
      <Compile Include="Assets\Scripts\TocarSomAteOFim.cs" />
      <Compile Include="Assets\Scripts\UI\BotaoTrocarIdioma.cs" />
+     <Compile Include="Assets\Scripts\UI\TelaFaltouMaca.cs" />
      <Compile Include="Assets\Scripts\UI\TelaSelecionarFasesMostrarExtras.cs" />
+     <Compile Include="Assets\Scripts\UI\TelaSemMacaDescricaoSobrevivencia.cs" />
      <Compile Include="Assets\Scripts\UnityAnalytics.cs" />
      <None Include="Assets\GooglePlayGames\Editor\Podfile.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
@@ -291,6 +294,7 @@
      <None Include="Assets\Resources\world2.txt" />
      <None Include="Assets\Resources\world1.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
@@ -309,6 +313,10 @@
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{2A217A1E-479A-942D-6F2D-36722CC8F156}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

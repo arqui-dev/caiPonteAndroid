@@ -29,6 +29,20 @@ public class GerenciadorAdBuddiz : MonoBehaviour
 		AdBuddizBinding.ShowAd();
 	}
 
+	public static void ShowVideo()
+	{
+		AdicionarMacas(1);
+		AdBuddizBinding.RewardedVideo.Fetch();
+		AdBuddizBinding.RewardedVideo.Show();
+	}
+
+	static void AdicionarMacas(int macas = 1)
+	{
+		Utilidade.AdicionarMacasPorQuantidade(macas);
+		Utilidade.AjeitarMacasVerdes();
+		UnityAnalytics.GanhouMaca(true, macas);
+	}
+
 	/*
 	public void OnGUI()
 	{
@@ -118,12 +132,14 @@ public class GerenciadorAdBuddiz : MonoBehaviour
 		//AdBuddizBinding.LogNative ("DidFail: " + adBuddizError);
 		//AdBuddizBinding.ToastNative ("DidFail: " + adBuddizError);
 		Debug.Log ("Unity: DidFail: " + adBuddizError);
+		//GerenciadorUnityAds.MostrarAdProprio();
 	}
 
 	void DidComplete() {
 		//AdBuddizBinding.LogNative ("DidComplete");
 		//AdBuddizBinding.ToastNative ("DidComplete");
 		Debug.Log ("Unity: DidComplete");
+		AdicionarMacas(Dados.macasPorVideo - 1);
 	}
 
 	void DidNotComplete() {

@@ -87,7 +87,7 @@ public class GerenciadorUnityAds : MonoBehaviour
 		UnityAnalytics.GanhouMaca(true, macas);
 	}
 
-	static void MostrarAdProprio()
+	public static void MostrarAdProprio()
 	{
 		UnityAnalytics.AbriuAd(false, Inicializado());
 

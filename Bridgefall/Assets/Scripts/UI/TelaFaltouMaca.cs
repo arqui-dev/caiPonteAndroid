@@ -20,8 +20,17 @@ public class TelaFaltouMaca : MonoBehaviour
 
 	public void IniciarVideo()
 	{
-		GerenciadorUnityAds.ShowRewardedAd();
-		Debug.Log ("Mostrou video unity ads");
+		if (Random.value < 0.5f)
+		{
+			GerenciadorUnityAds.ShowRewardedAd();
+			Debug.Log ("Mostrou video unity ads");
+		}
+		else
+		{
+			GerenciadorAdBuddiz.ShowVideo();
+			Debug.Log ("Mostrou video adbuddiz");
+		}
+
 		Fechar();
 	}
 

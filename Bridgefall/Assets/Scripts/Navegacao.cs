@@ -32,8 +32,10 @@ public class Navegacao : MonoBehaviour
 	{
 		//GerenciadorUnityAds.ShowRewardedAd();
 		MensagemMacaNaoTem();
+		/*
 		if (botao != null && Dados.macasVerdeTotal > 0)
 			botao.SetActive(false);
+		//*/
 	}
 
 	public void CarregarTela(Telas tela, bool tocarSom = true)
@@ -127,7 +129,7 @@ public class Navegacao : MonoBehaviour
 		CarregarTela(Telas.Jogo, false);
 	}
 
-	public void CarregarMesmaFase()
+	public void CarregarMesmaFase(bool derrota = false)
 	{
 		if (Dados.modoDeJogo == ModosDeJogo.Normal)
 		{
@@ -145,6 +147,27 @@ public class Navegacao : MonoBehaviour
 				}
 			}
 		}
+
+		/*
+		if (derrota)
+		{
+			if (Random.value < 0.5f)
+			{
+				GerenciadorUnityAds.ShowRewardedAd();
+				Debug.Log ("Mostrou video unity ads");
+			}
+			else
+			{
+				GerenciadorAdBuddiz.ShowVideo();
+				Debug.Log ("Mostrou video adbuddiz");
+			}
+		}
+		else
+		{
+			GerenciadorUnityAds.AdicionarMacas(1);
+			GerenciadorAdBuddiz.ShowBanner();
+		}
+		//*/
 
 		//Dados.modoDeJogo = ModosDeJogo.Normal;
 		CarregarTela(Telas.Jogo);

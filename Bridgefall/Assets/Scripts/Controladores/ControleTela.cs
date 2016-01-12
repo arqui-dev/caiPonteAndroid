@@ -214,7 +214,7 @@ public class ControleTela : MonoBehaviour
 		    GerenciadorUnityAds.Inicializado())
 		{
 			mostrou = true;
-			GerenciadorUnityAds.ShowRewardedAd();
+			//GerenciadorUnityAds.ShowRewardedAd();
 		}
 		//*/
 
